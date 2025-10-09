@@ -45,13 +45,13 @@ export const Accomplishments = () => {
           {accomplishments.map((item, index) => (
             <Card
               key={index}
-              className="p-6 bg-background border-border hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
+              className="p-6 bg-background border-border hover:border-primary/30 transition-colors duration-300 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 text-6xl font-bold text-primary/5 font-mono">
                 {item.year}
               </div>
               
-              <item.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform relative z-10" />
+              <item.icon className="w-10 h-10 text-primary mb-4 relative z-10" />
               <div className="font-mono text-sm text-primary mb-2">{item.year}</div>
               <h3 className="font-bold text-lg mb-2">{item.title}</h3>
               <p className="text-sm text-muted-foreground">{item.event}</p>

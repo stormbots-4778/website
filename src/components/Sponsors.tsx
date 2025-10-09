@@ -52,8 +52,8 @@ export const Sponsors = () => {
           {sponsors.map((sponsor, index) => (
             <Card
               key={index}
-              className={`p-8 bg-background border-border hover:border-primary/50 transition-all duration-300 group ${
-                sponsor.tier === "title" ? "border-primary/30" : ""
+              className={`p-8 bg-background border-border hover:border-primary/30 transition-colors duration-300 group ${
+                sponsor.tier === "title" ? "border-primary/20" : ""
               }`}
             >
               <div className="grid md:grid-cols-[200px_1fr_auto] gap-6 items-center">

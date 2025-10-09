@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-
 interface Sponsor {
   name: string;
   logo: string;
@@ -16,61 +14,58 @@ const sponsors: Sponsor[] = [
 ];
 
 export const ScrollingLogos = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-
-    const animate = () => {
-      scrollPosition += 0.5;
-      if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
-      scrollContainer.scrollLeft = scrollPosition;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
-  }, []);
-
+  // Triple the sponsors for seamless infinite scroll
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
   return (
-    <section className="py-16 bg-card/50 border-y border-border relative overflow-hidden">
-      <div className="absolute inset-0 blueprint-grid opacity-5" />
+    <section className="py-16 bg-card/30 border-y border-border relative overflow-hidden">
+      <div className="blueprint-grid absolute inset-0 opacity-5" />
       
       <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-2xl font-mono text-center text-muted-foreground">
-          <span className="text-primary">&gt;</span> Powered By
+        <h2 className="text-xl font-mono text-center text-muted-foreground">
+          Supported By
         </h2>
       </div>
 
-      <div
-        ref={scrollRef}
-        className="flex gap-12 items-center overflow-hidden whitespace-nowrap"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {duplicatedSponsors.map((sponsor, index) => (
-          <a
-            key={`${sponsor.name}-${index}`}
-            href={sponsor.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block flex-shrink-0 hover:scale-110 transition-transform duration-300"
-          >
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              className="h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
-            />
-          </a>
-        ))}
+      <div className="relative">
+        <div className="flex gap-12 items-center animate-scroll">
+          {duplicatedSponsors.map((sponsor, index) => (
+            <a
+              key={`${sponsor.name}-${index}`}
+              href={sponsor.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block flex-shrink-0 hover:scale-105 transition-transform duration-300"
+            >
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+              />
+            </a>
+          ))}
+        </div>
       </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          width: max-content;
+        }
+        
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

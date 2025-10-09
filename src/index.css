@@ -55,55 +55,12 @@ All colors MUST be HSL.
 
   .blueprint-grid {
     background-image: 
-      linear-gradient(hsl(var(--grid)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--grid)) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridScroll 20s linear infinite;
+      linear-gradient(hsl(var(--grid)) 0.5px, transparent 0.5px),
+      linear-gradient(90deg, hsl(var(--grid)) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
   }
 
-  @keyframes gridScroll {
-    0% {
-      background-position: 0 0, 0 0;
-    }
-    100% {
-      background-position: 50px 50px, 50px 50px;
-    }
-  }
-
-  .glow-text {
-    text-shadow: 0 0 10px hsl(var(--glow)), 0 0 20px hsl(var(--glow));
-  }
-
-  .terminal-cursor::after {
-    content: '▊';
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes blink {
-    0%, 50% {
-      opacity: 1;
-    }
-    51%, 100% {
-      opacity: 0;
-    }
-  }
-
-  .scan-lines {
-    background: linear-gradient(
-      transparent 0%,
-      rgba(0, 255, 255, 0.05) 50%,
-      transparent 100%
-    );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
-  }
-
-  @keyframes scan {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 0 100%;
-    }
+  .subtle-glow {
+    text-shadow: 0 0 20px hsl(var(--glow) / 0.3);
   }
 }

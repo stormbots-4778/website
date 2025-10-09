@@ -40,7 +40,7 @@ export const CompetitionSchedule = () => {
           {competitions.map((comp, index) => (
             <Card
               key={index}
-              className="p-6 mb-4 bg-background border-border hover:border-primary/50 transition-all duration-300 group"
+              className="p-6 mb-4 bg-background border-border hover:border-primary/30 transition-colors duration-300 group"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">

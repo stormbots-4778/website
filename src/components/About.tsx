@@ -64,9 +64,9 @@ export const About = () => {
           {features.map((feature) => (
             <Card
               key={feature.title}
-              className="p-6 bg-card border-border hover:border-primary/50 transition-all duration-300 group"
+              className="p-6 bg-card border-border hover:border-primary/30 transition-colors duration-300"
             >
-              <feature.icon className="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+              <feature.icon className="w-10 h-10 text-primary mb-4" />
               <h3 className="text-xl font-mono font-bold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </Card>
