@@ -76,7 +76,7 @@ export const Footer = () => {
             © {currentYear} FRC Team 4778 Stormbots
           </p>
           <p className="text-muted-foreground text-sm">
-            Made with <span className="text-red-500">❤️</span> from Chanhassen, MN
+            <span className="text-primary">&gt;</span> Made with <span className="text-red-500">❤️</span> from Chanhassen, MN
           </p>
         </div>
       </div>
