@@ -66,21 +66,21 @@ export const Outreach = () => {
 
           {/* Navigation Arrows */}
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 h-12 w-12 border-primary text-primary hover:bg-primary/10 hover:border-primary/50"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 h-14 w-14 text-primary hover:bg-primary/10"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-8 h-8" />
           </Button>
 
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 h-12 w-12 border-primary text-primary hover:bg-primary/10 hover:border-primary/50"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 h-14 w-14 text-primary hover:bg-primary/10"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-8 h-8" />
           </Button>
 
           {/* Dot indicators */}
@@ -97,6 +97,15 @@ export const Outreach = () => {
               />
             ))}
           </div>
+        </div>
+
+        {/* Description paragraph */}
+        <div className="text-center max-w-3xl mx-auto mt-12">
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We share our knowledge and inspire the next generation through outreach 
+            initiatives with local schools and community events. Through hands-on workshops 
+            and mentoring programs, we help students discover their passion for STEM.
+          </p>
         </div>
       </div>
     </section>
