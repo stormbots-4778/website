@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Lightbulb, Wrench } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 
@@ -12,6 +12,24 @@ export const Outreach = () => {
     "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop",
     "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=500&fit=crop",
+  ];
+
+  const activities = [
+    {
+      icon: Users,
+      title: "School Workshops",
+      description: "Hands-on robotics sessions with local schools and STEM programs"
+    },
+    {
+      icon: Lightbulb,
+      title: "Team Mentorship",
+      description: "Guiding younger FRC and FLL teams through competition seasons"
+    },
+    {
+      icon: Wrench,
+      title: "Community Demos",
+      description: "Public demonstrations at events, fairs, and community gatherings"
+    }
   ];
 
   const nextSlide = () => {
@@ -34,70 +52,73 @@ export const Outreach = () => {
           <div className="w-24 h-1 bg-primary" />
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto space-y-12">
+          {/* Image Carousel */}
           <Card className="overflow-hidden border-primary/30 bg-card/50 backdrop-blur">
-            <div className="grid md:grid-cols-5 gap-0">
-              {/* Carousel - takes up 3 columns */}
-              <div className="md:col-span-3 relative">
-                <div className="relative aspect-video md:aspect-square">
-                  <img
-                    src={images[currentSlide]}
-                    alt={`Outreach activity ${currentSlide + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/20" />
-                  
-                  {/* Carousel controls overlaid on image */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-background/80 backdrop-blur px-4 py-2 rounded-full border border-primary/30">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={prevSlide}
-                      className="h-8 w-8 text-primary hover:bg-primary/20"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </Button>
+            <div className="relative aspect-video">
+              <img
+                src={images[currentSlide]}
+                alt={`Outreach activity ${currentSlide + 1}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              
+              {/* Carousel controls */}
+              <div className="absolute inset-x-0 bottom-6 flex items-center justify-center gap-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={prevSlide}
+                  className="h-10 w-10 bg-background/80 backdrop-blur text-primary hover:bg-background/90 hover:text-primary"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </Button>
 
-                    <div className="flex gap-1.5">
-                      {images.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentSlide(index)}
-                          className={`w-1.5 h-1.5 rounded-full transition-all ${
-                            index === currentSlide
-                              ? "bg-primary w-6"
-                              : "bg-muted-foreground/40"
-                          }`}
-                        />
-                      ))}
-                    </div>
-
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={nextSlide}
-                      className="h-8 w-8 text-primary hover:bg-primary/20"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </Button>
-                  </div>
+                <div className="flex gap-2 bg-background/80 backdrop-blur px-4 py-2 rounded-full">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentSlide
+                          ? "bg-primary w-6"
+                          : "bg-muted-foreground/50"
+                      }`}
+                    />
+                  ))}
                 </div>
-              </div>
 
-              {/* Content - takes up 2 columns */}
-              <div className="md:col-span-2 p-8 flex flex-col justify-center">
-                <h3 className="text-2xl font-bold mb-4 font-mono">Community Impact</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  We share our knowledge and inspire the next generation through 
-                  outreach initiatives with local schools and community events.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Through hands-on workshops and mentoring programs, we help students 
-                  discover their passion for STEM while building practical robotics skills.
-                </p>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={nextSlide}
+                  className="h-10 w-10 bg-background/80 backdrop-blur text-primary hover:bg-background/90 hover:text-primary"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
               </div>
             </div>
           </Card>
+
+          {/* Description */}
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We share our knowledge and inspire the next generation through outreach 
+              initiatives with local schools and community events. Through hands-on workshops 
+              and mentoring programs, we help students discover their passion for STEM.
+            </p>
+          </div>
+
+          {/* Activities Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {activities.map((activity) => (
+              <Card key={activity.title} className="p-6 bg-card/50 border-border hover:border-primary/30 transition-colors">
+                <activity.icon className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-lg font-bold mb-2 font-mono">{activity.title}</h3>
+                <p className="text-sm text-muted-foreground">{activity.description}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

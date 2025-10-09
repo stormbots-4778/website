@@ -44,7 +44,7 @@ export const MeetingCalendar = () => {
           <div className="w-24 h-1 bg-primary" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-6xl mx-auto">
           {days.map((date, index) => {
             const meeting = getMeeting(index);
             const hasEvent = hasMeeting(index);
@@ -76,8 +76,8 @@ export const MeetingCalendar = () => {
                 {hasEvent && meeting && (
                   <div className="border-t border-border pt-4 mt-auto">
                     <div className="flex items-center gap-1 text-xs text-primary mb-2">
-                      <Clock className="w-3 h-3" />
-                      <span className="font-mono">{meeting.time}</span>
+                      <Clock className="w-3 h-3 flex-shrink-0" />
+                      <span className="font-mono whitespace-nowrap">{meeting.time}</span>
                     </div>
                     <div className="text-sm font-medium">{meeting.type}</div>
                   </div>

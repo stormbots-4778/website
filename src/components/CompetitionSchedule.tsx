@@ -33,11 +33,11 @@ export const CompetitionSchedule = () => {
       <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-16 text-center">
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-mono font-bold mb-4">
             <span className="text-primary">&gt;</span> Competition Schedule
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto" />
+          <div className="w-24 h-1 bg-primary" />
         </div>
 
         <div className="max-w-5xl mx-auto">
