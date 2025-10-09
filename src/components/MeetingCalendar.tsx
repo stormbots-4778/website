@@ -53,7 +53,7 @@ export const MeetingCalendar = () => {
             return (
               <Card
                 key={index}
-                className={`p-4 transition-all duration-300 ${
+                className={`p-6 transition-all duration-300 min-h-[180px] flex flex-col ${
                   isCurrentDay
                     ? "bg-primary/10 border-primary"
                     : hasEvent
@@ -61,35 +61,30 @@ export const MeetingCalendar = () => {
                     : "bg-card/50 border-border hover:border-border/80"
                 }`}
               >
-                <div className="text-center mb-2">
-                  <div className="font-mono text-xs text-muted-foreground mb-1">
+                <div className="text-center mb-4">
+                  <div className="font-mono text-xs text-muted-foreground mb-2">
                     {date.toLocaleDateString("en-US", { weekday: "short" })}
                   </div>
-                  <div className={`text-2xl font-bold font-mono ${isCurrentDay ? "text-primary" : ""}`}>
+                  <div className={`text-3xl font-bold font-mono ${isCurrentDay ? "text-primary" : ""}`}>
                     {date.getDate()}
                   </div>
-                  <div className="font-mono text-xs text-muted-foreground">
+                  <div className="font-mono text-xs text-muted-foreground mt-1">
                     {date.toLocaleDateString("en-US", { month: "short" })}
                   </div>
                 </div>
 
                 {hasEvent && meeting && (
-                  <div className="border-t border-border pt-3 mt-3">
-                    <div className="flex items-center gap-1 text-xs text-primary mb-1">
+                  <div className="border-t border-border pt-4 mt-auto">
+                    <div className="flex items-center gap-1 text-xs text-primary mb-2">
                       <Clock className="w-3 h-3" />
                       <span className="font-mono">{meeting.time}</span>
                     </div>
-                    <div className="text-xs font-medium">{meeting.type}</div>
+                    <div className="text-sm font-medium">{meeting.type}</div>
                   </div>
                 )}
               </Card>
             );
           })}
-        </div>
-
-        <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
-          <Calendar className="w-4 h-4 text-primary" />
-          <span className="font-mono">API Integration Ready - Connect your calendar data</span>
         </div>
       </div>
     </section>

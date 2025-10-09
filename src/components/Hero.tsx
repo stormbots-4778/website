@@ -51,15 +51,15 @@ export const Hero = () => {
             Join the Team
           </Button>
         </div>
-
-        <button
-          onClick={scrollToContent}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-          aria-label="Scroll to content"
-        >
-          <ArrowDown className="w-6 h-6" />
-        </button>
       </div>
+
+      <button
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-muted-foreground hover:text-primary transition-colors animate-bounce"
+        aria-label="Scroll to content"
+      >
+        <ArrowDown className="w-6 h-6" />
+      </button>
     </section>
   );
 };

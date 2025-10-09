@@ -73,10 +73,10 @@ export const Footer = () => {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm font-mono">
-            © {currentYear} FRC Team 4778 Stormbots. Built with precision.
+            © {currentYear} FRC Team 4778 Stormbots
           </p>
           <p className="text-muted-foreground text-sm">
-            <span className="text-primary">&gt;</span> Powered by passion
+            Made with <span className="text-red-500">❤️</span> from Chanhassen, MN
           </p>
         </div>
       </div>

@@ -48,16 +48,25 @@ export const Sponsors = () => {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {sponsors.map((sponsor, index) => (
             <Card
               key={index}
-              className={`p-8 bg-background border-border hover:border-primary/30 transition-colors duration-300 group ${
-                sponsor.tier === "title" ? "border-primary/20" : ""
+              className={`p-8 bg-background border-border hover:border-primary/50 transition-all duration-300 group relative overflow-hidden ${
+                sponsor.tier === "title" ? "md:col-span-2 border-primary/30" : ""
               }`}
             >
-              <div className="grid md:grid-cols-[200px_1fr_auto] gap-6 items-center">
-                <div className="flex items-center justify-center">
+              {/* Tier indicator */}
+              <div className={`absolute top-0 right-0 px-4 py-1 text-xs font-mono border-l border-b ${
+                sponsor.tier === "title" ? "bg-primary/20 text-primary border-primary/40" :
+                sponsor.tier === "gold" ? "bg-secondary/20 text-secondary border-secondary/40" :
+                "bg-muted text-muted-foreground border-border"
+              }`}>
+                {sponsor.tier.toUpperCase()}
+              </div>
+
+              <div className={`flex ${sponsor.tier === "title" ? "md:flex-row flex-col" : "flex-col"} gap-6 items-center text-center md:text-left`}>
+                <div className={`flex items-center justify-center ${sponsor.tier === "title" ? "md:w-64" : "w-full"}`}>
                   <img
                     src={sponsor.logo}
                     alt={sponsor.name}
@@ -65,22 +74,24 @@ export const Sponsors = () => {
                   />
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                <div className="flex-1">
+                  <h3 className={`font-bold mb-3 group-hover:text-primary transition-colors ${
+                    sponsor.tier === "title" ? "text-2xl" : "text-xl"
+                  }`}>
                     {sponsor.name}
                   </h3>
-                  <p className="text-muted-foreground">{sponsor.description}</p>
+                  <p className="text-muted-foreground mb-4">{sponsor.description}</p>
+                  
+                  <a
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-mono text-sm group-hover:gap-3"
+                  >
+                    Visit Website
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-
-                <a
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-mono text-sm"
-                >
-                  Visit
-                  <ExternalLink className="w-4 h-4" />
-                </a>
               </div>
             </Card>
           ))}

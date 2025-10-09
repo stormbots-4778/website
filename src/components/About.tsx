@@ -32,45 +32,31 @@ export const About = () => {
           <div className="w-24 h-1 bg-primary" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {features.map((feature) => (
+              <div key={feature.title} className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/30">
+                  <feature.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-mono font-bold mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <Card className="p-8 bg-card/50 border-primary/20">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               We're FRC Team 4778, competing in the FIRST Robotics Competition. 
               Our team combines programming, mechanical engineering, and problem-solving 
-              to build competition-ready robots.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Each season brings new challenges, and we meet them with practical solutions, 
-              rigorous testing, and collaborative teamwork. We focus on what works, 
-              iterate constantly, and learn from every competition.
+              to build competition-ready robots each season.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Beyond competition, we engage with our community through outreach programs, 
-              workshops, and mentoring younger teams.
+              workshops, and mentoring. We focus on practical solutions, rigorous testing, 
+              and learning from every challenge we face.
             </p>
-          </div>
-
-          <div className="relative">
-            <div className="aspect-video bg-muted rounded border border-primary/30 overflow-hidden relative group">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Code className="w-24 h-24 text-primary/30 group-hover:text-primary/50 transition-colors" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
-            </div>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {features.map((feature) => (
-            <Card
-              key={feature.title}
-              className="p-6 bg-card border-border hover:border-primary/30 transition-colors duration-300"
-            >
-              <feature.icon className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-xl font-mono font-bold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </Card>
-          ))}
+          </Card>
         </div>
       </div>
     </section>

@@ -25,56 +25,59 @@ export const CompetitionSchedule = () => {
   ];
 
   return (
-    <section id="schedule" className="py-24 bg-card/30 relative">
-      <div className="absolute inset-0 blueprint-grid opacity-5" />
+    <section id="schedule" className="py-24 bg-card/30 relative overflow-hidden">
+      <div className="absolute inset-0 blueprint-grid opacity-10" />
+      
+      {/* Engineering-themed accent lines */}
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
+      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="mb-16">
+        <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-mono font-bold mb-4">
             <span className="text-primary">&gt;</span> Competition Schedule
           </h2>
-          <div className="w-24 h-1 bg-primary" />
+          <div className="w-24 h-1 bg-primary mx-auto" />
         </div>
 
-        <div className="max-w-3xl">
+        <div className="max-w-5xl mx-auto">
           {competitions.map((comp, index) => (
             <Card
               key={index}
-              className="p-6 mb-4 bg-background border-border hover:border-primary/30 transition-colors duration-300 group"
+              className="p-8 mb-6 bg-background/80 backdrop-blur border-primary/20 hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
             >
-              <div className="flex items-start justify-between gap-4">
+              {/* Blueprint corner accent */}
+              <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-primary/20 group-hover:border-primary/40 transition-colors" />
+              <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-primary/20 group-hover:border-primary/40 transition-colors" />
+              
+              <div className="flex items-start justify-between gap-6">
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors font-mono">
                     {comp.name}
                   </h3>
                   
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      <span className="font-mono text-sm">{comp.date}</span>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="font-mono">{comp.date}</span>
                     </div>
                     
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <MapPin className="w-4 h-4 text-primary" />
-                      <span className="text-sm">{comp.location}</span>
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span>{comp.location}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col items-end gap-2">
-                  <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-mono rounded border border-primary/30">
+                <div className="flex flex-col items-end gap-3">
+                  <span className="px-4 py-2 bg-primary/20 text-primary text-xs font-mono rounded border border-primary/30 group-hover:bg-primary/30 transition-colors">
                     {comp.status.toUpperCase()}
                   </span>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLink className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
               </div>
             </Card>
           ))}
-        </div>
-
-        <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
-          <Calendar className="w-4 h-4 text-primary" />
-          <span className="font-mono">API Integration Ready - Connect your competition data</span>
         </div>
       </div>
     </section>

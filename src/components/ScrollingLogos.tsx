@@ -18,17 +18,11 @@ export const ScrollingLogos = () => {
   const duplicatedSponsors = [...sponsors, ...sponsors, ...sponsors];
 
   return (
-    <section className="py-16 bg-card/30 border-y border-border relative overflow-hidden">
+    <section className="py-12 bg-card/30 border-y border-border relative overflow-hidden">
       <div className="blueprint-grid absolute inset-0 opacity-5" />
-      
-      <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-xl font-mono text-center text-muted-foreground">
-          Supported By
-        </h2>
-      </div>
 
       <div className="relative">
-        <div className="flex gap-12 items-center animate-scroll">
+        <div className="flex gap-16 items-center animate-scroll">
           {duplicatedSponsors.map((sponsor, index) => (
             <a
               key={`${sponsor.name}-${index}`}
@@ -40,7 +34,7 @@ export const ScrollingLogos = () => {
               <img
                 src={sponsor.logo}
                 alt={sponsor.name}
-                className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
               />
             </a>
           ))}
@@ -58,7 +52,7 @@ export const ScrollingLogos = () => {
         }
         
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 40s linear infinite;
           width: max-content;
         }
         
