@@ -75,8 +75,12 @@ export const Footer = () => {
           <p className="text-muted-foreground text-sm font-mono">
             © {currentYear} FRC Team 4778 Stormbots
           </p>
-          <p className="text-muted-foreground text-sm">
-            <span className="text-primary">&gt;</span> Made with <span className="text-red-500">❤️</span> from Chanhassen, MN
+          <p className="text-muted-foreground text-sm flex items-center gap-1">
+            <span className="text-primary text-xl font-mono relative">
+              &gt;
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></span>
+            </span>
+            Made with <span className="text-red-500">❤️</span> from Chanhassen, MN
           </p>
         </div>
       </div>
