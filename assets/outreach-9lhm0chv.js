@@ -1,0 +1,1 @@
+const o=[{filename:"workshop.jpg",caption:"School Workshop - Teaching robotics fundamentals"},{filename:"demo.jpg",caption:"Community Demo - Showcasing our competition robot"},{filename:"mentorship.jpg",caption:"Team Mentorship - Guiding younger FRC teams"},{filename:"stem-fair.jpg",caption:"STEM Fair - Inspiring future engineers"}];export{o as default};
