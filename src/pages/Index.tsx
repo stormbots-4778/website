@@ -2,11 +2,13 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ScrollingLogos } from "@/components/ScrollingLogos";
 import { About } from "@/components/About";
+import { AboutFRC } from "@/components/AboutFRC";
 import { Accomplishments } from "@/components/Accomplishments";
 import { MeetingCalendar } from "@/components/MeetingCalendar";
 import { CompetitionSchedule } from "@/components/CompetitionSchedule";
 import { Outreach } from "@/components/Outreach";
 import { Sponsors } from "@/components/Sponsors";
+import { Join } from "@/components/Join";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -22,6 +24,8 @@ const Index = () => {
         <CompetitionSchedule />
         <Outreach />
         <Sponsors />
+        <AboutFRC />
+        <Join />
       </main>
       <Footer />
     </div>

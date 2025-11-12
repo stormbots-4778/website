@@ -17,6 +17,7 @@ export const Header = () => {
 
   const navItems = [
     { label: "About", href: "#about" },
+    { label: "About FRC", href: "#about-frc" },
     { label: "Accomplishments", href: "#accomplishments" },
     { label: "Meetings", href: "#meetings" },
     { label: "Schedule", href: "#schedule" },

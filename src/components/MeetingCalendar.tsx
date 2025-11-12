@@ -13,11 +13,11 @@ export const MeetingCalendar = () => {
     days.push(date);
   }
 
-  // Mock meeting data - will be replaced with API
+  // Meeting schedule: Tuesdays, Thursdays, and Fridays from 4:00 PM to 8:00 PM
   const meetings = [
-    { day: 0, time: "3:30 PM - 6:00 PM", type: "Build Session" },
-    { day: 2, time: "3:30 PM - 6:00 PM", type: "Build Session" },
-    { day: 4, time: "3:30 PM - 6:00 PM", type: "Programming" },
+    { day: 1, time: "4:00 PM - 8:00 PM", type: "Team Meeting" }, // Tuesday
+    { day: 3, time: "4:00 PM - 8:00 PM", type: "Team Meeting" }, // Thursday
+    { day: 4, time: "4:00 PM - 8:00 PM", type: "Team Meeting" }, // Friday
   ];
 
   const isToday = (date: Date) => {
@@ -42,6 +42,10 @@ export const MeetingCalendar = () => {
             <span className="text-primary">&gt;</span> Meeting Schedule
           </h2>
           <div className="w-24 h-1 bg-primary" />
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+            FRC Stormbots 4778 meets on Tuesdays, Thursdays, and Fridays from 4:00 PM to 8:00 PM. 
+            Coming to all meetings is encouraged, but not required. How much you participate is completely up to you.
+          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 max-w-7xl mx-auto">

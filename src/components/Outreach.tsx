@@ -1,36 +1,79 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+interface OutreachImage {
+  filename: string;
+  caption: string;
+}
 
 export const Outreach = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [images, setImages] = useState<Array<{ url: string; caption: string }>>([]);
 
-  const images = [
-    {
-      url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop",
-      caption: "School Workshop - Teaching robotics fundamentals"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop",
-      caption: "Community Demo - Showcasing our competition robot"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=800&fit=crop",
-      caption: "Team Mentorship - Guiding younger FRC teams"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1200&h=800&fit=crop",
-      caption: "STEM Fair - Inspiring future engineers"
-    },
-  ];
+  useEffect(() => {
+    // Load outreach images from src/assets/outreach/outreach.json
+    const loadOutreachImages = async () => {
+      try {
+        const outreachData = await import('../assets/outreach/outreach.json');
+        if (outreachData.default && Array.isArray(outreachData.default)) {
+          const imageData: OutreachImage[] = outreachData.default;
+          
+          // Load image URLs from filenames
+          const loadedImages = await Promise.all(
+            imageData.map(async (item) => {
+              try {
+                const imageModule = await import(`../assets/outreach/${item.filename}`);
+                return {
+                  url: imageModule.default,
+                  caption: item.caption,
+                };
+              } catch (error) {
+                console.warn(`Could not load image ${item.filename}:`, error);
+                return null;
+              }
+            })
+          );
+          
+          const validImages = loadedImages.filter((img): img is { url: string; caption: string } => img !== null);
+          if (validImages.length > 0) {
+            setImages(validImages);
+            return;
+          }
+        }
+      } catch (error) {
+        console.warn('Could not load outreach images:', error);
+      }
+      // Fallback to empty if JSON fails to load
+      setImages([]);
+    };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % images.length);
-  };
+    loadOutreachImages();
+  }, []);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
-  };
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  if (images.length === 0) {
+    return null;
+  }
 
   return (
     <section id="outreach" className="py-24 relative overflow-hidden">
@@ -45,30 +88,50 @@ export const Outreach = () => {
         </div>
 
         <div className="max-w-5xl mx-auto relative">
-          {/* Image Frame */}
-          <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30">
-            <div className="relative aspect-video">
-              <img
-                src={images[currentSlide].url}
-                alt={images[currentSlide].caption}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-              
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-lg font-mono text-foreground">
-                  {images[currentSlide].caption}
-                </p>
-              </div>
-            </div>
-          </div>
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 5000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-0">
+              {images.map((image, index) => (
+                <CarouselItem key={index} className="pl-0">
+                  {/* Image Frame */}
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-primary/30">
+                    <div className="relative aspect-video">
+                      <img
+                        src={image.url}
+                        alt={image.caption}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      
+                      {/* Caption */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <p className="text-lg font-mono text-foreground">
+                          {image.caption}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
           {/* Navigation Arrows */}
           <Button
             variant="ghost"
             size="icon"
-            onClick={prevSlide}
+            onClick={() => api?.scrollPrev()}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 h-14 w-14 text-primary hover:bg-primary/10"
           >
             <ChevronLeft className="w-8 h-8" />
@@ -77,7 +140,7 @@ export const Outreach = () => {
           <Button
             variant="ghost"
             size="icon"
-            onClick={nextSlide}
+            onClick={() => api?.scrollNext()}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 h-14 w-14 text-primary hover:bg-primary/10"
           >
             <ChevronRight className="w-8 h-8" />
@@ -88,9 +151,9 @@ export const Outreach = () => {
             {images.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => api?.scrollTo(index)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentSlide
+                  index === current
                     ? "bg-primary w-8"
                     : "bg-muted-foreground/40"
                 }`}

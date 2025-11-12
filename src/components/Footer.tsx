@@ -15,13 +15,29 @@ export const Footer = () => {
               FRC Team 4778 - Building robots, breaking limits.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
+              <a 
+                href="https://github.com/stormbots-4778" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors" 
+                aria-label="GitHub"
+              >
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+              <a 
+                href="https://www.instagram.com/chanrobotics/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors" 
+                aria-label="Instagram"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
+              <a 
+                href="mailto:4778@chanrobotics.org" 
+                className="text-muted-foreground hover:text-primary transition-colors" 
+                aria-label="Email"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
@@ -30,10 +46,19 @@ export const Footer = () => {
           <div>
             <h3 className="font-mono font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["About", "Accomplishments", "Meetings", "Schedule", "Outreach", "Sponsors"].map(item => <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-muted-foreground hover:text-primary transition-colors font-mono text-sm">
+              {[
+                { label: "About", href: "#about" },
+                { label: "About FRC", href: "#about-frc" },
+                { label: "Accomplishments", href: "#accomplishments" },
+                { label: "Meetings", href: "#meetings" },
+                { label: "Schedule", href: "#schedule" },
+                { label: "Outreach", href: "#outreach" },
+                { label: "Sponsors", href: "#sponsors" },
+                { label: "Join", href: "#join" },
+              ].map(item => <li key={item.label}>
+                    <a href={item.href} className="text-muted-foreground hover:text-primary transition-colors font-mono text-sm">
                       <span className="text-primary mr-2">&gt;</span>
-                      {item}
+                      {item.label}
                     </a>
                   </li>)}
             </ul>
@@ -42,9 +67,13 @@ export const Footer = () => {
           <div>
             <h3 className="font-mono font-bold mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="font-mono text-sm">team@stormbots4778.org</li>
-              <li className="text-sm">Meeting Location TBD</li>
-              <li className="text-sm">Build Season: Sept - April</li>
+              <li className="font-mono text-sm">
+                <a href="mailto:4778@chanrobotics.org" className="hover:text-primary transition-colors">
+                  4778@chanrobotics.org
+                </a>
+              </li>
+              <li className="text-sm">Chanhassen, Minnesota</li>
+              <li className="text-sm">Meetings: Tues, Thurs, Fri 4-8 PM</li>
             </ul>
           </div>
         </div>

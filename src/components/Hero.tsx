@@ -47,6 +47,9 @@ export const Hero = () => {
             size="lg"
             variant="outline"
             className="border-primary text-primary hover:bg-primary/10 font-mono"
+            onClick={() => {
+              document.getElementById("join")?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             Join the Team
           </Button>
