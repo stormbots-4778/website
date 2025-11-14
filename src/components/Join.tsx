@@ -80,17 +80,6 @@ export const Join = () => {
                   Email Us
                 </a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 font-mono"
-                asChild
-              >
-                <a href="https://sites.google.com/view/chanrobotics/join" target="_blank" rel="noopener noreferrer">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Learn More
-                </a>
-              </Button>
             </div>
           </Card>
 

@@ -181,7 +181,7 @@ export const Sponsors = () => {
         <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">Interested in supporting Team 4778?</p>
           <a
-            href="#contact"
+            href="#join"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono rounded hover:bg-primary/90 transition-colors"
           >
             Become a Sponsor

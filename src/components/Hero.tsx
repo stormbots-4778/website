@@ -39,9 +39,12 @@ export const Hero = () => {
           <Button
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+            asChild
           >
-            <Terminal className="w-4 h-4 mr-2" />
-            View Projects
+            <a href="#accomplishments">
+              <Terminal className="w-4 h-4 mr-2" />
+              View Projects
+            </a>
           </Button>
           <Button
             size="lg"

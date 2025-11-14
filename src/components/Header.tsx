@@ -33,7 +33,14 @@ export const Header = () => {
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
+          <a 
+            href="#" 
+            className="flex items-center gap-2 group"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <Terminal className="w-6 h-6 text-primary transition-transform" />
             <span className="font-mono font-bold text-xl">STORMBOTS</span>
             <span className="font-mono text-primary text-sm">4778</span>

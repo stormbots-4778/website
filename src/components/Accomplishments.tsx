@@ -56,7 +56,7 @@ export const Accomplishments = () => {
             return (
               <Card 
                 key={index} 
-                className="p-6 border-2 border-primary bg-background text-center hover:scale-105 transition-transform duration-300 cursor-pointer group"
+                className="p-6 border-2 border-primary bg-background text-center hover:scale-105 transition-transform duration-300 group"
               >
                 <div className="flex justify-center mb-2 group-hover:scale-110 transition-transform">
                   <IconComponent className="w-8 h-8 text-primary" />

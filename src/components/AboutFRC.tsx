@@ -10,25 +10,6 @@ export const AboutFRC = () => {
     { icon: Target, title: "Time Management & Marketing", description: "Essential professional skills" },
   ];
 
-  const resources = [
-    {
-      category: "From FIRST",
-      links: [
-        { name: "Official FRC Website", url: "https://www.firstinspires.org/" },
-        { name: "Competition Manual & QA", url: "https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system" },
-      ],
-    },
-    {
-      category: "From Stormbots Robotics",
-      links: [
-        { name: "GitHub Site", url: "#" },
-        { name: "Templates", url: "#" },
-        { name: "Autodesk Fusion360 (CAD)", url: "#" },
-        { name: "Autodesk Synthesis (Virtual Testing)", url: "#" },
-      ],
-    },
-  ];
-
   return (
     <section id="about-frc" className="py-24 bg-card/30 relative">
       <div className="absolute inset-0 blueprint-grid opacity-5" />
@@ -72,10 +53,15 @@ export const AboutFRC = () => {
           <Card className="p-8 bg-background border-primary/30">
             <div className="text-center">
               <h3 className="text-2xl font-mono font-bold mb-2 text-primary">This Year's Game</h3>
-              <p className="text-4xl font-bold mb-4">REEFSCAPE</p>
+              <p className="text-4xl font-bold mb-4">REBUILT™</p>
+              <p className="text-muted-foreground mb-2">
+                Presented by Haas
+              </p>
               <p className="text-muted-foreground">
-                The 2025 FIRST Robotics Competition game challenges teams to build robots that compete in 
-                exciting underwater-themed challenges.
+                In REBUILT™, teams will use engineering skills and re-imagine the past. Every artifact we uncover 
+                holds a story. Each tool, each innovation, each work of art connects us to the people and ideas 
+                that came before us. Using STEM skills and teamwork, today we can dig deeper into discoveries 
+                than ever before.
               </p>
             </div>
           </Card>
@@ -98,34 +84,6 @@ export const AboutFRC = () => {
                       <p className="text-sm text-muted-foreground">{skill.description}</p>
                     </div>
                   </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-2xl font-mono font-bold mb-6 text-center">Resources</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {resources.map((resource, index) => (
-                <Card key={index} className="p-6 bg-background border-border">
-                  <h4 className="font-mono font-bold mb-4 text-primary">{resource.category}</h4>
-                  <ul className="space-y-2">
-                    {resource.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-mono text-sm"
-                        >
-                          <span className="text-primary mr-2">&gt;</span>
-                          {link.name}
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
                 </Card>
               ))}
             </div>
