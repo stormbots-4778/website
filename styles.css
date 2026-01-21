@@ -983,6 +983,25 @@ img {
   font-style: italic;
 }
 
+/* Loading State */
+.loading-state {
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: 3rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* ----------------------------------------
    Outreach Section
 ---------------------------------------- */

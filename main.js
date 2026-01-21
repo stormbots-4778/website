@@ -272,12 +272,13 @@ function renderFallbackCalendar(calendarGrid) {
    Competition Schedule - API Powered
 ---------------------------------------- */
 async function loadCompetitions(data) {
-  const competitionsList = document.querySelector('.competitions-list');
+  const competitionsList = document.getElementById('competitionsList');
   if (!competitionsList) return;
 
   try {
     if (!data || !data.competitions || !data.competitions.success) {
       console.warn('No competition data from API');
+      competitionsList.innerHTML = '<p class="no-competitions">No upcoming competitions scheduled.</p>';
       return;
     }
     

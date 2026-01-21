@@ -258,7 +258,7 @@
           </div>
 
           <div class="calendar-grid" id="calendarGrid">
-            <!-- Calendar will be populated by JavaScript -->
+            <div class="loading-state">Loading schedule...</div>
           </div>
         </div>
       </section>
@@ -275,114 +275,8 @@
             <div class="section-line"></div>
           </div>
 
-          <div class="competitions-list">
-            <div class="competition-card">
-              <div class="competition-corner-tl"></div>
-              <div class="competition-corner-br"></div>
-              <div class="competition-content">
-                <div class="competition-info">
-                  <h3 class="competition-name">District Event #1</h3>
-                  <div class="competition-details">
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                      </svg>
-                      <span>March 15-17, 2024</span>
-                    </div>
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                      <span>Michigan State University</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="competition-status-wrap">
-                  <span class="competition-status">UPCOMING</span>
-                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div class="competition-card">
-              <div class="competition-corner-tl"></div>
-              <div class="competition-corner-br"></div>
-              <div class="competition-content">
-                <div class="competition-info">
-                  <h3 class="competition-name">Great Lakes Regional</h3>
-                  <div class="competition-details">
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                      </svg>
-                      <span>April 5-7, 2024</span>
-                    </div>
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                      <span>Grand Rapids, MI</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="competition-status-wrap">
-                  <span class="competition-status">UPCOMING</span>
-                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div class="competition-card">
-              <div class="competition-corner-tl"></div>
-              <div class="competition-corner-br"></div>
-              <div class="competition-content">
-                <div class="competition-info">
-                  <h3 class="competition-name">State Championship</h3>
-                  <div class="competition-details">
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                      </svg>
-                      <span>April 20-22, 2024</span>
-                    </div>
-                    <div class="competition-detail">
-                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                      <span>Detroit, MI</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="competition-status-wrap">
-                  <span class="competition-status">UPCOMING</span>
-                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </div>
-              </div>
-            </div>
+          <div class="competitions-list" id="competitionsList">
+            <div class="loading-state">Loading competitions...</div>
           </div>
         </div>
       </section>
