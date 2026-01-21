@@ -1,24 +1,818 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4778 Stormbots | FRC Robotics Team</title>
-    <meta name="description" content="FRC Team 4778 Stormbots - Building competitive robots through programming, engineering, and innovation." />
-    <meta name="author" content="4778 Stormbots" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4778 Stormbots | FRC Robotics Team</title>
+  <meta name="description" content="FRC Team 4778 Stormbots - Building competitive robots through programming, engineering, and innovation.">
+  <meta name="author" content="4778 Stormbots">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <meta property="og:title" content="4778 Stormbots | FRC Robotics Team">
+  <meta property="og:description" content="FRC Team 4778 Stormbots - Building competitive robots through programming, engineering, and innovation.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="min-h-screen">
+    <!-- Header -->
+    <header id="header" class="header">
+      <nav class="nav-container">
+        <div class="nav-content">
+          <a href="#" class="logo-link" onclick="scrollToTop(event)">
+            <svg class="icon icon-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span class="logo-text">STORMBOTS</span>
+            <span class="logo-number">4778</span>
+          </a>
 
-    <meta property="og:title" content="4778 Stormbots | FRC Robotics Team" />
-    <meta property="og:description" content="FRC Team 4778 Stormbots - Building competitive robots through programming, engineering, and innovation." />
-    <meta property="og:type" content="website" />
+          <!-- Desktop Navigation -->
+          <div class="nav-desktop">
+            <a href="#about" class="nav-link">About<span class="nav-underline"></span></a>
+            <a href="#about-frc" class="nav-link">About FRC<span class="nav-underline"></span></a>
+            <a href="#accomplishments" class="nav-link">Accomplishments<span class="nav-underline"></span></a>
+            <a href="#meetings" class="nav-link">Meetings<span class="nav-underline"></span></a>
+            <a href="#schedule" class="nav-link">Schedule<span class="nav-underline"></span></a>
+            <a href="#outreach" class="nav-link">Outreach<span class="nav-underline"></span></a>
+            <a href="#sponsors" class="nav-link">Sponsors<span class="nav-underline"></span></a>
+          </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <svg class="icon icon-menu" id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon icon-close hidden" id="closeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile hidden" id="mobileNav">
+          <a href="#about" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> About</a>
+          <a href="#about-frc" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> About FRC</a>
+          <a href="#accomplishments" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Accomplishments</a>
+          <a href="#meetings" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Meetings</a>
+          <a href="#schedule" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Schedule</a>
+          <a href="#outreach" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Outreach</a>
+          <a href="#sponsors" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Sponsors</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="blueprint-grid hero-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="icon icon-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span>FRC Team</span>
+          </div>
+          
+          <h1 class="hero-number subtle-glow">4778</h1>
+          <h2 class="hero-title">STORMBOTS</h2>
+          
+          <p class="hero-description">Building competitive robots through programming, engineering, and teamwork</p>
+          
+          <div class="hero-buttons">
+            <a href="#accomplishments" class="btn btn-primary">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              View Projects
+            </a>
+            <a href="#join" class="btn btn-outline">Join the Team</a>
+          </div>
+        </div>
+
+        <button class="scroll-indicator" onclick="scrollToAbout()" aria-label="Scroll to content">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </button>
+      </section>
+
+      <!-- Scrolling Logos Section -->
+      <section class="scrolling-logos" id="scrollingLogos">
+        <div class="logos-container">
+          <div class="logos-track" id="logosTrack">
+            <!-- Logos will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="blueprint-grid section-grid"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> About</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="about-content">
+            <p>We're FRC Team 4778 Stormbots, a high school robotics team based in Chanhassen, Minnesota. We participate in the FIRST Robotics Competition (FRC), a global program that challenges students to design, build, and program robots to compete in various games.</p>
+            <p>Our team combines programming, mechanical engineering, and problem-solving to build competition-ready robots each season. By participating in the Stormbots, students have the opportunity to develop skills in engineering, programming, teamwork, and problem-solving, all while engaging in a competitive and collaborative environment.</p>
+            <p>Beyond competition, we engage with our community through outreach programs, workshops, and mentoring. We focus on practical solutions, rigorous testing, and learning from every challenge we face.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accomplishments Section -->
+      <section id="accomplishments" class="section section-alt">
+        <div class="blueprint-grid section-grid-light"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Accomplishments</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="4" y1="9" x2="20" y2="9"></line>
+                  <line x1="4" y1="15" x2="20" y2="15"></line>
+                  <line x1="10" y1="3" x2="8" y2="21"></line>
+                  <line x1="16" y1="3" x2="14" y2="21"></line>
+                </svg>
+              </div>
+              <div class="stat-number">4778</div>
+              <div class="stat-label">Team Number</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="stat-number">14</div>
+              <div class="stat-label">Seasons Competed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+              <div class="stat-number">21</div>
+              <div class="stat-label">Total Events</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div class="stat-number">1</div>
+              <div class="stat-label">Championship Trips</div>
+            </div>
+          </div>
+
+          <!-- Awards Grid -->
+          <div class="awards-header">
+            <h3 class="awards-title">Awards & Achievements</h3>
+          </div>
+          <div class="awards-grid">
+            <div class="award-card">
+              <div class="award-year-bg">2025</div>
+              <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+              <div class="award-meta">2025 • REEFSCAPE</div>
+              <h3 class="award-title">Imagery Award in honor of Jack Kamen</h3>
+              <p class="award-event">Minnesota 10,000 Lakes Regional</p>
+            </div>
+            <div class="award-card">
+              <div class="award-year-bg">2015</div>
+              <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+              <div class="award-meta">2015 • RECYCLE RUSH</div>
+              <h3 class="award-title">Innovation in Control Award</h3>
+              <p class="award-sponsor">Sponsored by Rockwell Automation</p>
+              <p class="award-event">Minnesota North Star Regional</p>
+            </div>
+            <div class="award-card">
+              <div class="award-year-bg">2014</div>
+              <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+              </svg>
+              <div class="award-meta">2014 • AERIAL ASSIST</div>
+              <h3 class="award-title">Regional Winner</h3>
+              <p class="award-event">Minnesota North Star Regional</p>
+              <p class="award-championship">→ FIRST Championship - Archimedes Division</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Meeting Schedule Section -->
+      <section id="meetings" class="section">
+        <div class="blueprint-grid section-grid"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Meeting Schedule</h2>
+            <div class="section-line"></div>
+            <p class="section-description">FRC Stormbots 4778 meets on Tuesdays, Thursdays, and Fridays from 4:00 PM to 8:00 PM. Coming to all meetings is encouraged, but not required. How much you participate is completely up to you.</p>
+          </div>
+
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Calendar will be populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Competition Schedule Section -->
+      <section id="schedule" class="section section-alt">
+        <div class="blueprint-grid section-grid"></div>
+        <div class="schedule-accent-left"></div>
+        <div class="schedule-accent-right"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Competition Schedule</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="competitions-list">
+            <div class="competition-card">
+              <div class="competition-corner-tl"></div>
+              <div class="competition-corner-br"></div>
+              <div class="competition-content">
+                <div class="competition-info">
+                  <h3 class="competition-name">District Event #1</h3>
+                  <div class="competition-details">
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>March 15-17, 2024</span>
+                    </div>
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Michigan State University</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="competition-status-wrap">
+                  <span class="competition-status">UPCOMING</span>
+                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="competition-card">
+              <div class="competition-corner-tl"></div>
+              <div class="competition-corner-br"></div>
+              <div class="competition-content">
+                <div class="competition-info">
+                  <h3 class="competition-name">Great Lakes Regional</h3>
+                  <div class="competition-details">
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>April 5-7, 2024</span>
+                    </div>
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Grand Rapids, MI</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="competition-status-wrap">
+                  <span class="competition-status">UPCOMING</span>
+                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="competition-card">
+              <div class="competition-corner-tl"></div>
+              <div class="competition-corner-br"></div>
+              <div class="competition-content">
+                <div class="competition-info">
+                  <h3 class="competition-name">State Championship</h3>
+                  <div class="competition-details">
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>April 20-22, 2024</span>
+                    </div>
+                    <div class="competition-detail">
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Detroit, MI</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="competition-status-wrap">
+                  <span class="competition-status">UPCOMING</span>
+                  <svg class="icon competition-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Outreach Section -->
+      <section id="outreach" class="section">
+        <div class="blueprint-grid section-grid"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Outreach</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="carousel-container" id="outreachCarousel">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- Carousel items will be populated by JavaScript if images exist -->
+            </div>
+            <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+
+          <div class="outreach-description">
+            <p>We share our knowledge and inspire the next generation through outreach initiatives with local schools and community events. Through hands-on workshops and mentoring programs, we help students discover their passion for STEM.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sponsors Section -->
+      <section id="sponsors" class="section section-alt">
+        <div class="blueprint-grid section-grid-light"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Our Sponsors</h2>
+            <div class="section-line"></div>
+            <p class="section-description">We're grateful for the support of our sponsors who make our robotics program possible.</p>
+          </div>
+
+          <div class="sponsors-container">
+            <!-- Title Sponsors -->
+            <div class="sponsor-tier">
+              <h3 class="sponsor-tier-title sponsor-tier-title-primary">Title Sponsors</h3>
+              <div class="sponsor-card sponsor-card-title">
+                <div class="sponsor-logo-wrap sponsor-logo-wrap-lg">
+                  <img src="https://via.placeholder.com/300x120?text=Title+Sponsor" alt="Title Sponsor" class="sponsor-logo">
+                </div>
+                <div class="sponsor-info">
+                  <h4 class="sponsor-name">Title Sponsor</h4>
+                  <p class="sponsor-description">Primary funding partner supporting our mission to inspire young engineers and build competitive robots.</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+                    Visit Website
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gold Sponsors -->
+            <div class="sponsor-tier">
+              <h3 class="sponsor-tier-title sponsor-tier-title-gold">Gold Sponsors</h3>
+              <div class="sponsors-grid sponsors-grid-2">
+                <div class="sponsor-card sponsor-card-gold">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-md">
+                    <img src="https://via.placeholder.com/240x100?text=Gold+Sponsor+A" alt="Gold Sponsor A" class="sponsor-logo">
+                  </div>
+                  <h4 class="sponsor-name">Gold Sponsor A</h4>
+                  <p class="sponsor-description-sm">Providing materials and resources for our build season.</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
+                    Visit
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+                <div class="sponsor-card sponsor-card-gold">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-md">
+                    <img src="https://via.placeholder.com/240x100?text=Gold+Sponsor+B" alt="Gold Sponsor B" class="sponsor-logo">
+                  </div>
+                  <h4 class="sponsor-name">Gold Sponsor B</h4>
+                  <p class="sponsor-description-sm">Supporting outreach programs and community engagement.</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
+                    Visit
+                    <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Silver Sponsors -->
+            <div class="sponsor-tier">
+              <h3 class="sponsor-tier-title sponsor-tier-title-silver">Silver Sponsors</h3>
+              <div class="sponsors-grid sponsors-grid-3">
+                <div class="sponsor-card sponsor-card-silver">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-sm">
+                    <img src="https://via.placeholder.com/200x80?text=Silver+Sponsor+A" alt="Silver Sponsor A" class="sponsor-logo">
+                  </div>
+                  <h4 class="sponsor-name-sm">Silver Sponsor A</h4>
+                  <p class="sponsor-description-xs">Contributing to operational expenses.</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link-sm">
+                    Visit
+                    <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+                <div class="sponsor-card sponsor-card-silver">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-sm">
+                    <img src="https://via.placeholder.com/200x80?text=Silver+Sponsor+B" alt="Silver Sponsor B" class="sponsor-logo">
+                  </div>
+                  <h4 class="sponsor-name-sm">Silver Sponsor B</h4>
+                  <p class="sponsor-description-xs">Supporting team equipment needs.</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link-sm">
+                    Visit
+                    <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sponsor-cta">
+            <p class="sponsor-cta-text">Interested in supporting Team 4778?</p>
+            <a href="#join" class="btn btn-primary">Become a Sponsor</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About FRC Section -->
+      <section id="about-frc" class="section section-alt">
+        <div class="blueprint-grid section-grid-light"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> About FRC</h2>
+            <div class="section-line"></div>
+            <div class="frc-meta">
+              <div class="frc-meta-item">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Grades 9-12</span>
+              </div>
+              <div class="frc-meta-item">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Competition Season: January to April</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="frc-content">
+            <!-- Main Description -->
+            <div class="frc-description">
+              <h3 class="frc-subtitle">What is FIRST Robotics Competition?</h3>
+              <p>FIRST Robotics Competition (FRC) participants work as a team to create large robots that compete in unique yearly challenges. During the build season of the competition, students learn about important engineering and design principles. In addition, team members can learn specific skills, such as wiring, programming, fabrication, and assembly.</p>
+              <p>Students participating in FRC also improve their teamwork, time management, leadership, marketing, and fundraising skills. This is why it's no surprise that high school students call FIRST Robotics Competition <span class="text-primary font-bold">"the hardest fun you'll ever have."</span></p>
+            </div>
+
+            <!-- This Year's Game -->
+            <div class="frc-game-card">
+              <h3 class="frc-game-label">This Year's Game</h3>
+              <p class="frc-game-name">REBUILT™</p>
+              <p class="frc-game-presenter">Presented by Haas</p>
+              <p class="frc-game-description">In REBUILT™, teams will use engineering skills and re-imagine the past. Every artifact we uncover holds a story. Each tool, each innovation, each work of art connects us to the people and ideas that came before us. Using STEM skills and teamwork, today we can dig deeper into discoveries than ever before.</p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="skills-section">
+              <h3 class="skills-title">Skills You'll Learn</h3>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <div class="skill-icon-wrap">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-name">Wiring, Programming, Fabrication</h4>
+                    <p class="skill-description">Hands-on technical skills</p>
+                  </div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon-wrap">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-name">Engineering & Design Principles</h4>
+                    <p class="skill-description">Learn from real-world challenges</p>
+                  </div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon-wrap">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-name">Teamwork & Leadership</h4>
+                    <p class="skill-description">Collaborate effectively</p>
+                  </div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon-wrap">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="6"></circle>
+                      <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                  </div>
+                  <div class="skill-content">
+                    <h4 class="skill-name">Time Management & Marketing</h4>
+                    <p class="skill-description">Essential professional skills</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Official FRC Link -->
+            <div class="frc-cta">
+              <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Visit Official FRC Website
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Join Section -->
+      <section id="join" class="section">
+        <div class="blueprint-grid section-grid"></div>
+        
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Join FRC Stormbots 4778</h2>
+            <div class="section-line"></div>
+            <p class="section-description">Interested in joining our team? Follow these steps to become a member of FRC Team 4778 Stormbots.</p>
+          </div>
+
+          <div class="join-steps">
+            <div class="join-step-card">
+              <div class="join-step-icon">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="join-step-content">
+                <h3 class="join-step-title">Create a FIRST Account</h3>
+                <p class="join-step-description">Start by creating an account on the FIRST website to register for the program.</p>
+              </div>
+            </div>
+            <div class="join-step-card">
+              <div class="join-step-icon">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="join-step-content">
+                <h3 class="join-step-title">Apply to the Team</h3>
+                <p class="join-step-description">Submit your application to join FRC Team 4778 Stormbots through the FIRST system.</p>
+              </div>
+            </div>
+            <div class="join-step-card">
+              <div class="join-step-icon">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div class="join-step-content">
+                <h3 class="join-step-title">Register with Eastern Carver County Schools</h3>
+                <p class="join-step-description">Complete registration through Eastern Carver County Schools. The registration fee of $225 covers participation in both FIRST Tech Challenge and FIRST Robotics Competition programs.</p>
+              </div>
+            </div>
+            <div class="join-step-card">
+              <div class="join-step-icon">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="join-step-content">
+                <h3 class="join-step-title">Get in Touch</h3>
+                <p class="join-step-description">Reach out to us at 4778@chanrobotics.org with any questions or to express your interest in joining the team.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="join-cta-section">
+            <div class="join-cta-card">
+              <h3 class="join-cta-title">Ready to Join?</h3>
+              <p class="join-cta-text">Have questions or want to learn more? Reach out to us via email or join our Discord server to connect with current members and get updates on upcoming meetings and events.</p>
+              <div class="join-cta-buttons">
+                <a href="mailto:4778@chanrobotics.org" class="btn btn-primary">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  Email Us
+                </a>
+              </div>
+            </div>
+            <p class="join-note"><strong>Note:</strong> Coming to all meetings is encouraged, but not required. How much you participate is completely up to you.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="blueprint-grid footer-grid"></div>
+      
+      <div class="container footer-container">
+        <div class="footer-grid-content">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg class="icon icon-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+              <span class="footer-logo-text">STORMBOTS</span>
+            </div>
+            <p class="footer-tagline">FRC Team 4778 - Building robots, breaking limits.</p>
+            <div class="footer-social">
+              <a href="https://github.com/stormbots-4778" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/chanrobotics/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="mailto:4778@chanrobotics.org" class="social-link" aria-label="Email">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-nav">
+              <li><a href="#about"><span class="text-primary">&gt;</span> About</a></li>
+              <li><a href="#about-frc"><span class="text-primary">&gt;</span> About FRC</a></li>
+              <li><a href="#accomplishments"><span class="text-primary">&gt;</span> Accomplishments</a></li>
+              <li><a href="#meetings"><span class="text-primary">&gt;</span> Meetings</a></li>
+              <li><a href="#schedule"><span class="text-primary">&gt;</span> Schedule</a></li>
+              <li><a href="#outreach"><span class="text-primary">&gt;</span> Outreach</a></li>
+              <li><a href="#sponsors"><span class="text-primary">&gt;</span> Sponsors</a></li>
+              <li><a href="#join"><span class="text-primary">&gt;</span> Join</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3 class="footer-heading">Contact</h3>
+            <ul class="footer-contact-list">
+              <li><a href="mailto:4778@chanrobotics.org">4778@chanrobotics.org</a></li>
+              <li>Chanhassen, Minnesota</li>
+              <li>Meetings: Tues, Thurs, Fri 4-8 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">© <span id="currentYear"></span> FRC Team 4778 Stormbots</p>
+          <p class="footer-made">
+            <span class="text-primary">&gt;</span>
+            Made with <span class="heart">❤️</span> from Chanhassen, MN
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
 </html>
