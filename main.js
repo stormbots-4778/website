@@ -371,43 +371,161 @@ function formatTime(dateString) {
 }
 
 /* ----------------------------------------
-   Scrolling Logos
+   Scrolling Logos - Two Mega Strips Logic
 ---------------------------------------- */
-async function initScrollingLogos() {
-  const logosTrack = document.getElementById('logosTrack');
-  const scrollingLogosSection = document.getElementById('scrollingLogos');
+function initScrollingLogos() {
+  const SCROLL_SPEED = 50; // pixels per second
   
-  if (!logosTrack || !scrollingLogosSection) return;
+  // Sponsor data with hardcoded widths for consistent spacing
+  const SPONSORS = [
+    { url: 'https://district112.org', img: 'assets/logos/ECCS.svg', alt: 'Eastern Carver County Schools', width: 280 },
+    { url: 'https://www.ghaasfoundation.org/', img: 'assets/logos/GeneHaas.svg', alt: 'Gene Haas Foundation', width: 280 },
+    { url: 'https://www.meander-creative.com/', img: 'assets/logos/Meander.svg', alt: 'Meander Creative', width: 280 },
+    { url: 'https://www.mitgr.com/', img: 'assets/logos/Macsteel.svg', alt: 'Macsteel International', width: 280 }
+  ];
 
-  try {
-    // Try to load logos from the JSON file
-    const response = await fetch('assets/logos/logos.json');
-    if (!response.ok) throw new Error('Could not load logos');
+  let container, strip1, strip2;
+  let stripWidth = 0;
+  let pos1 = 0, pos2 = 0;
+  let lastTimestamp = 0;
+  let animationFrameId;
+
+  function createLogoElement(sponsor) {
+    const link = document.createElement('a');
+    link.href = sponsor.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.className = 'logo-scroll-item';
+    link.style.width = sponsor.width + 'px';
+    link.style.flexShrink = '0';
+    link.style.display = 'flex';
+    link.style.alignItems = 'center';
+    link.style.justifyContent = 'center';
+    link.style.padding = '0 2rem';
+    link.style.height = '100%';
     
-    const sponsors = await response.json();
+    const img = document.createElement('img');
+    img.src = sponsor.img;
+    img.alt = sponsor.alt;
+    img.draggable = false;
+    img.style.height = '100%';
+    img.style.width = '100%';
+    img.style.objectFit = 'contain';
+    img.style.filter = 'brightness(0) invert(1) opacity(0.85)';
+    img.style.transition = 'filter 0.3s ease';
     
-    if (!sponsors || sponsors.length === 0) {
-      scrollingLogosSection.style.display = 'none';
-      return;
+    link.appendChild(img);
+    
+    // Hover effect
+    link.addEventListener('mouseenter', () => {
+      img.style.filter = 'brightness(0) invert(1) opacity(1)';
+    });
+    link.addEventListener('mouseleave', () => {
+      img.style.filter = 'brightness(0) invert(1) opacity(0.85)';
+    });
+    
+    return link;
+  }
+
+  function buildStrip() {
+    const strip = document.createElement('div');
+    strip.style.display = 'flex';
+    strip.style.alignItems = 'center';
+    strip.style.position = 'absolute';
+    strip.style.top = '0';
+    strip.style.left = '0';
+    strip.style.height = '100%';
+    strip.style.willChange = 'transform';
+
+    container.appendChild(strip);
+    
+    // Add at least one full set
+    SPONSORS.forEach(s => strip.appendChild(createLogoElement(s)));
+    
+    // Keep adding sets until wider than screen + buffer
+    while (strip.scrollWidth < window.innerWidth + 500) {
+      SPONSORS.forEach(s => strip.appendChild(createLogoElement(s)));
+    }
+    
+    stripWidth = strip.scrollWidth;
+    container.removeChild(strip);
+    
+    return strip;
+  }
+
+  function init() {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    
+    container = document.getElementById('logosTrack');
+    const scrollingLogosSection = document.getElementById('scrollingLogos');
+    
+    if (!container || !scrollingLogosSection) return;
+
+    container.innerHTML = '';
+    container.style.position = 'relative';
+    container.style.overflow = 'hidden';
+    container.style.height = '60px';
+    container.style.width = '100%';
+
+    // Create the "Mega Strip"
+    const baseStrip = buildStrip();
+
+    // Create two identical instances
+    strip1 = baseStrip.cloneNode(true);
+    strip2 = baseStrip.cloneNode(true);
+
+    // Set initial positions
+    pos1 = 0;
+    pos2 = stripWidth;
+
+    container.appendChild(strip1);
+    container.appendChild(strip2);
+
+    // Start Animation
+    lastTimestamp = performance.now();
+    requestAnimationFrame(animate);
+  }
+
+  function animate(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const dt = (timestamp - lastTimestamp) / 1000;
+    lastTimestamp = timestamp;
+
+    // Move both strips left
+    const move = SCROLL_SPEED * dt;
+    pos1 -= move;
+    pos2 -= move;
+
+    // Recycle logic
+    if (pos1 <= -stripWidth) {
+      pos1 += stripWidth * 2;
+    }
+    if (pos2 <= -stripWidth) {
+      pos2 += stripWidth * 2;
+    }
+    
+    // Failsafe for gaps
+    if (Math.abs(pos1 - pos2) > stripWidth + 10) {
+      if (pos1 < pos2) pos1 = pos2 - stripWidth;
+      else pos2 = pos1 - stripWidth;
     }
 
-    // Create logo elements - duplicate for seamless scrolling
-    const createLogoElements = (sponsors) => {
-      return sponsors.map(sponsor => `
-        <a href="${sponsor.url}" target="_blank" rel="noopener noreferrer" class="logo-item">
-          <img src="assets/logos/${sponsor.filename}" alt="${sponsor.name}">
-        </a>
-      `).join('');
-    };
+    // Apply positions
+    strip1.style.transform = `translate3d(${pos1}px, 0, 0)`;
+    strip2.style.transform = `translate3d(${pos2}px, 0, 0)`;
 
-    // Create multiple copies for seamless scrolling
-    const logoHTML = createLogoElements(sponsors);
-    logosTrack.innerHTML = logoHTML + logoHTML + logoHTML + logoHTML;
-
-  } catch (error) {
-    console.warn('Could not load sponsor logos:', error);
-    scrollingLogosSection.style.display = 'none';
+    animationFrameId = requestAnimationFrame(animate);
   }
+
+  // Boot up
+  init();
+
+  // Handle resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 200);
+  });
 }
 
 /* ----------------------------------------
@@ -447,7 +565,7 @@ async function initCarousel() {
     `).join('');
 
     // Create dots
-    carouselDots.innerHTML = outreachData.map((_, index) => `
+    carouselDots.innerHTML = photosData.map((_, index) => `
       <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
     `).join('');
 
