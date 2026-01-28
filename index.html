@@ -115,10 +115,8 @@
 
       <!-- Scrolling Logos Section -->
       <section class="scrolling-logos" id="scrollingLogos">
-        <div class="logos-container">
-          <div class="logos-track" id="logosTrack">
-            <!-- Logos will be populated by JavaScript -->
-          </div>
+        <div class="logos-container" id="sponsorScrollContainer">
+          <!-- Logos will be populated by JavaScript -->
         </div>
       </section>
 
@@ -293,7 +291,10 @@
 
           <div class="carousel-container" id="photosCarousel">
             <div class="carousel-track" id="carouselTrack">
-              <!-- Carousel items will be populated by JavaScript -->
+              <!-- Initial slides - will be replaced by JavaScript -->
+              <div class="carousel-slide" data-index="0">
+                <img src="assets/photos/1.jpg" alt="Team Photo">
+              </div>
             </div>
             <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -322,37 +323,55 @@
           </div>
 
           <!-- Diamond Sponsors -->
-          <div class="sponsors-tier-section">
-            <div class="tier-label tier-diamond">
-              <span class="tier-badge">◆</span>
-              Diamond
-            </div>
-            <div class="sponsors-row">
-              <a href="https://district112.org" target="_blank" rel="noopener noreferrer" class="sponsor-item sponsor-diamond">
-                <img src="assets/logos/ECCS.svg" alt="Eastern Carver County Schools" class="sponsor-img">
-                <span class="sponsor-name-hover">Eastern Carver County Schools</span>
+          <div class="sponsors-tier">
+            <h3 class="sponsors-tier-title">Diamond Sponsors</h3>
+            <div class="sponsors-grid">
+              <a href="https://district112.org" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-card-diamond">
+                <span class="sponsor-badge sponsor-badge-diamond">Diamond</span>
+                <div class="sponsor-logo-container">
+                  <img src="assets/logos/ECCS.svg" alt="Eastern Carver County Schools" class="sponsor-logo">
+                </div>
+                <div class="sponsor-info">
+                  <h4 class="sponsor-name">Eastern Carver County Schools</h4>
+                  <p class="sponsor-desc">Our school district partner providing facilities and support for our robotics program.</p>
+                </div>
               </a>
-              <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-item sponsor-diamond">
-                <img src="assets/logos/GeneHaas.svg" alt="Gene Haas Foundation" class="sponsor-img">
-                <span class="sponsor-name-hover">Gene Haas Foundation</span>
+              <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-card-diamond">
+                <span class="sponsor-badge sponsor-badge-diamond">Diamond</span>
+                <div class="sponsor-logo-container">
+                  <img src="assets/logos/GeneHaas.svg" alt="Gene Haas Foundation" class="sponsor-logo">
+                </div>
+                <div class="sponsor-info">
+                  <h4 class="sponsor-name">Gene Haas Foundation</h4>
+                  <p class="sponsor-desc">Supporting STEM education and manufacturing technology programs nationwide.</p>
+                </div>
               </a>
             </div>
           </div>
 
           <!-- Gold Sponsors -->
-          <div class="sponsors-tier-section">
-            <div class="tier-label tier-gold">
-              <span class="tier-badge">★</span>
-              Gold
-            </div>
-            <div class="sponsors-row">
-              <a href="https://www.meander-creative.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item sponsor-gold">
-                <img src="assets/logos/Meander.svg" alt="Meander Creative" class="sponsor-img">
-                <span class="sponsor-name-hover">Meander Creative</span>
+          <div class="sponsors-tier">
+            <h3 class="sponsors-tier-title">Gold Sponsors</h3>
+            <div class="sponsors-grid">
+              <a href="https://www.meander-creative.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-card-gold">
+                <span class="sponsor-badge sponsor-badge-gold">Gold</span>
+                <div class="sponsor-logo-container">
+                  <img src="assets/logos/Meander.svg" alt="Meander Creative" class="sponsor-logo">
+                </div>
+                <div class="sponsor-info">
+                  <h4 class="sponsor-name">Meander Creative</h4>
+                  <p class="sponsor-desc">Creative design and branding support for our team.</p>
+                </div>
               </a>
-              <a href="https://www.mitgr.com/" target="_blank" rel="noopener noreferrer" class="sponsor-item sponsor-gold">
-                <img src="assets/logos/Macsteel.svg" alt="Macsteel International" class="sponsor-img">
-                <span class="sponsor-name-hover">Macsteel International</span>
+              <a href="https://www.mitgr.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card sponsor-card-gold">
+                <span class="sponsor-badge sponsor-badge-gold">Gold</span>
+                <div class="sponsor-logo-container">
+                  <img src="assets/logos/Macsteel.svg" alt="Macsteel International" class="sponsor-logo">
+                </div>
+                <div class="sponsor-info">
+                  <h4 class="sponsor-name">Macsteel International</h4>
+                  <p class="sponsor-desc">Global steel trading and materials support.</p>
+                </div>
               </a>
             </div>
           </div>

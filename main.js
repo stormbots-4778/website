@@ -456,7 +456,7 @@ function initScrollingLogos() {
   function init() {
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     
-    container = document.getElementById('logosTrack');
+    container = document.getElementById('sponsorScrollContainer');
     const scrollingLogosSection = document.getElementById('scrollingLogos');
     
     if (!container || !scrollingLogosSection) return;
