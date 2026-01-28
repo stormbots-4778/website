@@ -376,12 +376,12 @@ function formatTime(dateString) {
 function initScrollingLogos() {
   const SCROLL_SPEED = 50; // pixels per second
   
-  // Sponsor data with hardcoded widths for consistent spacing
+  // Sponsor data with widths based on logo shape (wider logos get more space)
   const SPONSORS = [
-    { url: 'https://district112.org', img: 'assets/logos/ECCS.svg', alt: 'Eastern Carver County Schools', width: 280 },
-    { url: 'https://www.ghaasfoundation.org/', img: 'assets/logos/GeneHaas.svg', alt: 'Gene Haas Foundation', width: 280 },
-    { url: 'https://www.meander-creative.com/', img: 'assets/logos/Meander.svg', alt: 'Meander Creative', width: 280 },
-    { url: 'https://www.mitgr.com/', img: 'assets/logos/Macsteel.svg', alt: 'Macsteel International', width: 280 }
+    { url: 'https://district112.org', img: 'assets/logos/ECCS.svg', alt: 'Eastern Carver County Schools', width: 180 },
+    { url: 'https://www.ghaasfoundation.org/', img: 'assets/logos/GeneHaas.svg', alt: 'Gene Haas Foundation', width: 180 },
+    { url: 'https://www.meander-creative.com/', img: 'assets/logos/Meander.svg', alt: 'Meander Creative', width: 320 },
+    { url: 'https://www.mitgr.com/', img: 'assets/logos/Macsteel.svg', alt: 'Macsteel International', width: 240 }
   ];
 
   let container, strip1, strip2;
@@ -401,7 +401,7 @@ function initScrollingLogos() {
     link.style.display = 'flex';
     link.style.alignItems = 'center';
     link.style.justifyContent = 'center';
-    link.style.padding = '0 2rem';
+    link.style.padding = '0 1rem';
     link.style.height = '100%';
     
     const img = document.createElement('img');
@@ -464,7 +464,7 @@ function initScrollingLogos() {
     container.innerHTML = '';
     container.style.position = 'relative';
     container.style.overflow = 'hidden';
-    container.style.height = '60px';
+    container.style.height = '100px';
     container.style.width = '100%';
 
     // Create the "Mega Strip"
