@@ -346,13 +346,28 @@ async function loadCompetitions(data) {
    Date/Time Formatting Helpers
 ---------------------------------------- */
 function formatDate(dateString) {
-  const date = new Date(dateString);
+  // Parse date without timezone conversion
+  const [datePart] = dateString.split('T');
+  const [year, month, day] = datePart.split('-').map(Number);
+  const date = new Date(year, month - 1, day);
   return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
 function formatTime(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  // Parse time directly from string without timezone conversion
+  if (!dateString.includes('T')) {
+    return '';
+  }
+  
+  const timePart = dateString.split('T')[1];
+  const [hours, minutes] = timePart.split(':').map(Number);
+  
+  // Convert to 12-hour format
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hour12 = hours % 12 || 12;
+  const minuteStr = minutes.toString().padStart(2, '0');
+  
+  return `${hour12}:${minuteStr} ${period}`;
 }
 
 /* ----------------------------------------
@@ -396,7 +411,7 @@ async function initScrollingLogos() {
 }
 
 /* ----------------------------------------
-   Outreach Carousel
+   Team Photos Carousel
 ---------------------------------------- */
 let carouselCurrentIndex = 0;
 let carouselImages = [];
@@ -404,32 +419,30 @@ let carouselImages = [];
 async function initCarousel() {
   const carouselTrack = document.getElementById('carouselTrack');
   const carouselDots = document.getElementById('carouselDots');
-  const carouselContainer = document.getElementById('outreachCarousel');
+  const carouselContainer = document.getElementById('photosCarousel');
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
   
   if (!carouselTrack || !carouselContainer) return;
 
   try {
-    // Try to load outreach images from the JSON file
-    const response = await fetch('assets/outreach/outreach.json');
-    if (!response.ok) throw new Error('Could not load outreach data');
+    // Try to load photos from the JSON file
+    const response = await fetch('assets/photos/photos.json');
+    if (!response.ok) throw new Error('Could not load photos data');
     
-    const outreachData = await response.json();
+    const photosData = await response.json();
     
-    if (!outreachData || outreachData.length === 0) {
+    if (!photosData || photosData.length === 0) {
       carouselContainer.style.display = 'none';
       return;
     }
 
-    carouselImages = outreachData;
+    carouselImages = photosData;
 
     // Create carousel slides
-    carouselTrack.innerHTML = outreachData.map((item, index) => `
+    carouselTrack.innerHTML = photosData.map((item, index) => `
       <div class="carousel-slide" data-index="${index}">
-        <img src="assets/outreach/${item.filename}" alt="${item.caption}">
-        <div class="carousel-caption-overlay"></div>
-        <div class="carousel-caption">${item.caption}</div>
+        <img src="assets/photos/${item.filename}" alt="${item.caption}">
       </div>
     `).join('');
 

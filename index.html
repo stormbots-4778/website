@@ -40,7 +40,7 @@
             <a href="#accomplishments" class="nav-link">Accomplishments<span class="nav-underline"></span></a>
             <a href="#meetings" class="nav-link">Meetings<span class="nav-underline"></span></a>
             <a href="#schedule" class="nav-link">Schedule<span class="nav-underline"></span></a>
-            <a href="#outreach" class="nav-link">Outreach<span class="nav-underline"></span></a>
+            <a href="#photos" class="nav-link">Photos<span class="nav-underline"></span></a>
             <a href="#sponsors" class="nav-link">Sponsors<span class="nav-underline"></span></a>
           </div>
 
@@ -65,7 +65,7 @@
           <a href="#accomplishments" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Accomplishments</a>
           <a href="#meetings" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Meetings</a>
           <a href="#schedule" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Schedule</a>
-          <a href="#outreach" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Outreach</a>
+          <a href="#photos" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Photos</a>
           <a href="#sponsors" class="nav-mobile-link" onclick="closeMobileMenu()"><span class="text-primary">&gt;</span> Sponsors</a>
         </div>
       </nav>
@@ -99,7 +99,7 @@
                 <polyline points="4 17 10 11 4 5"></polyline>
                 <line x1="12" y1="19" x2="20" y2="19"></line>
               </svg>
-              View Projects
+              Learn More
             </a>
             <a href="#join" class="btn btn-outline">Join the Team</a>
           </div>
@@ -281,19 +281,19 @@
         </div>
       </section>
 
-      <!-- Outreach Section -->
-      <section id="outreach" class="section">
+      <!-- Team Photos Section -->
+      <section id="photos" class="section">
         <div class="blueprint-grid section-grid"></div>
         
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title"><span class="text-primary">&gt;</span> Outreach</h2>
+            <h2 class="section-title"><span class="text-primary">&gt;</span> Team Photos</h2>
             <div class="section-line"></div>
           </div>
 
-          <div class="carousel-container" id="outreachCarousel">
+          <div class="carousel-container" id="photosCarousel">
             <div class="carousel-track" id="carouselTrack">
-              <!-- Carousel items will be populated by JavaScript if images exist -->
+              <!-- Carousel items will be populated by JavaScript -->
             </div>
             <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -306,10 +306,6 @@
               </svg>
             </button>
             <div class="carousel-dots" id="carouselDots"></div>
-          </div>
-
-          <div class="outreach-description">
-            <p>We share our knowledge and inspire the next generation through outreach initiatives with local schools and community events. Through hands-on workshops and mentoring programs, we help students discover their passion for STEM.</p>
           </div>
         </div>
       </section>
@@ -326,24 +322,43 @@
           </div>
 
           <div class="sponsors-container">
-            <!-- Title Sponsors -->
+            <!-- Diamond Sponsors -->
             <div class="sponsor-tier">
-              <h3 class="sponsor-tier-title sponsor-tier-title-primary">Title Sponsors</h3>
-              <div class="sponsor-card sponsor-card-title">
-                <div class="sponsor-logo-wrap sponsor-logo-wrap-lg">
-                  <img src="https://via.placeholder.com/300x120?text=Title+Sponsor" alt="Title Sponsor" class="sponsor-logo">
+              <h3 class="sponsor-tier-title sponsor-tier-title-primary">Diamond Sponsors</h3>
+              <div class="sponsors-grid sponsors-grid-2">
+                <div class="sponsor-card sponsor-card-title">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-lg">
+                    <img src="assets/logos/ECCS.svg" alt="Eastern Carver County Schools" class="sponsor-logo">
+                  </div>
+                  <div class="sponsor-info">
+                    <h4 class="sponsor-name">Eastern Carver County Schools</h4>
+                    <p class="sponsor-description">Our school district partner providing facilities and support for our robotics program.</p>
+                    <a href="https://district112.org" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+                      Visit Website
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-                <div class="sponsor-info">
-                  <h4 class="sponsor-name">Title Sponsor</h4>
-                  <p class="sponsor-description">Primary funding partner supporting our mission to inspire young engineers and build competitive robots.</p>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link">
-                    Visit Website
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
+                <div class="sponsor-card sponsor-card-title">
+                  <div class="sponsor-logo-wrap sponsor-logo-wrap-lg">
+                    <img src="assets/logos/GeneHaas.svg" alt="Gene Haas Foundation" class="sponsor-logo">
+                  </div>
+                  <div class="sponsor-info">
+                    <h4 class="sponsor-name">Gene Haas Foundation</h4>
+                    <p class="sponsor-description">Supporting STEM education and manufacturing technology programs nationwide.</p>
+                    <a href="https://www.ghaasfoundation.org/" target="_blank" rel="noopener noreferrer" class="sponsor-link">
+                      Visit Website
+                      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -354,11 +369,11 @@
               <div class="sponsors-grid sponsors-grid-2">
                 <div class="sponsor-card sponsor-card-gold">
                   <div class="sponsor-logo-wrap sponsor-logo-wrap-md">
-                    <img src="https://via.placeholder.com/240x100?text=Gold+Sponsor+A" alt="Gold Sponsor A" class="sponsor-logo">
+                    <img src="assets/logos/Meander.svg" alt="Meander Creative" class="sponsor-logo">
                   </div>
-                  <h4 class="sponsor-name">Gold Sponsor A</h4>
-                  <p class="sponsor-description-sm">Providing materials and resources for our build season.</p>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
+                  <h4 class="sponsor-name">Meander Creative</h4>
+                  <p class="sponsor-description-sm">Creative design and branding support for our team.</p>
+                  <a href="https://www.meander-creative.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
                     Visit
                     <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -369,11 +384,11 @@
                 </div>
                 <div class="sponsor-card sponsor-card-gold">
                   <div class="sponsor-logo-wrap sponsor-logo-wrap-md">
-                    <img src="https://via.placeholder.com/240x100?text=Gold+Sponsor+B" alt="Gold Sponsor B" class="sponsor-logo">
+                    <img src="assets/logos/Macsteel.svg" alt="Macsteel International" class="sponsor-logo">
                   </div>
-                  <h4 class="sponsor-name">Gold Sponsor B</h4>
-                  <p class="sponsor-description-sm">Supporting outreach programs and community engagement.</p>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
+                  <h4 class="sponsor-name">Macsteel International</h4>
+                  <p class="sponsor-description-sm">Global steel trading and materials support.</p>
+                  <a href="https://www.mitgr.com/" target="_blank" rel="noopener noreferrer" class="sponsor-link sponsor-link-gold">
                     Visit
                     <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -385,7 +400,7 @@
               </div>
             </div>
 
-            <!-- Silver Sponsors -->
+            <!-- Silver Sponsors - Currently none
             <div class="sponsor-tier">
               <h3 class="sponsor-tier-title sponsor-tier-title-silver">Silver Sponsors</h3>
               <div class="sponsors-grid sponsors-grid-3">
@@ -421,11 +436,12 @@
                 </div>
               </div>
             </div>
+            -->
           </div>
 
           <div class="sponsor-cta">
             <p class="sponsor-cta-text">Interested in supporting Team 4778?</p>
-            <a href="#join" class="btn btn-primary">Become a Sponsor</a>
+            <a href="mailto:4778@chanrobotics.org?subject=Becoming%20a%20Sponsor%20for%20Team%204778" class="btn btn-primary">Become a Sponsor</a>
           </div>
         </div>
       </section>
@@ -560,7 +576,7 @@
           </div>
 
           <div class="join-steps">
-            <div class="join-step-card">
+            <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer" class="join-step-card join-step-link">
               <div class="join-step-icon">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -571,10 +587,14 @@
                 </svg>
               </div>
               <div class="join-step-content">
-                <h3 class="join-step-title">Create a FIRST Account</h3>
+                <h3 class="join-step-title">Create a FIRST Account <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></h3>
                 <p class="join-step-description">Start by creating an account on the FIRST website to register for the program.</p>
               </div>
-            </div>
+            </a>
             <div class="join-step-card">
               <div class="join-step-icon">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -589,7 +609,7 @@
                 <p class="join-step-description">Submit your application to join FRC Team 4778 Stormbots through the FIRST system.</p>
               </div>
             </div>
-            <div class="join-step-card">
+            <a href="https://lobby.edutrak.com" target="_blank" rel="noopener noreferrer" class="join-step-card join-step-link">
               <div class="join-step-icon">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="12" y1="1" x2="12" y2="23"></line>
@@ -597,10 +617,14 @@
                 </svg>
               </div>
               <div class="join-step-content">
-                <h3 class="join-step-title">Register with Eastern Carver County Schools</h3>
-                <p class="join-step-description">Complete registration through Eastern Carver County Schools. The registration fee of $225 covers participation in both FIRST Tech Challenge and FIRST Robotics Competition programs.</p>
+                <h3 class="join-step-title">Register with Eastern Carver County Schools <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg></h3>
+                <p class="join-step-description">Complete registration through Eastern Carver County Schools. The registration fee of $275 covers participation in both FIRST Tech Challenge and FIRST Robotics Competition programs.</p>
               </div>
-            </div>
+            </a>
             <div class="join-step-card">
               <div class="join-step-icon">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -680,7 +704,7 @@
               <li><a href="#accomplishments"><span class="text-primary">&gt;</span> Accomplishments</a></li>
               <li><a href="#meetings"><span class="text-primary">&gt;</span> Meetings</a></li>
               <li><a href="#schedule"><span class="text-primary">&gt;</span> Schedule</a></li>
-              <li><a href="#outreach"><span class="text-primary">&gt;</span> Outreach</a></li>
+              <li><a href="#photos"><span class="text-primary">&gt;</span> Photos</a></li>
               <li><a href="#sponsors"><span class="text-primary">&gt;</span> Sponsors</a></li>
               <li><a href="#join"><span class="text-primary">&gt;</span> Join</a></li>
             </ul>

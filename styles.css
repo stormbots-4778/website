@@ -1540,6 +1540,18 @@ img {
   border-color: hsla(180, 100%, 50%, 0.3);
 }
 
+.join-step-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.join-step-link:hover {
+  border-color: hsla(180, 100%, 50%, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px hsla(180, 100%, 50%, 0.1);
+}
+
 .join-step-icon {
   padding: 0.75rem;
   background-color: hsla(180, 100%, 50%, 0.1);
@@ -1558,6 +1570,16 @@ img {
   font-weight: 700;
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.join-step-title .icon-sm {
+  width: 1rem;
+  height: 1rem;
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
 .join-step-description {

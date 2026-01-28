@@ -1,7 +1,26 @@
 [
   {
-    "name": "Meander",
+    "name": "Eastern Carver County Schools",
+    "filename": "ECCS.svg",
+    "url": "https://district112.org",
+    "tier": "diamond"
+  },
+  {
+    "name": "Gene Haas Foundation",
+    "filename": "GeneHaas.svg",
+    "url": "https://www.ghaasfoundation.org/",
+    "tier": "diamond"
+  },
+  {
+    "name": "Meander Creative",
     "filename": "Meander.svg",
-    "url": "https://example.com"
+    "url": "https://www.meander-creative.com/",
+    "tier": "gold"
+  },
+  {
+    "name": "Macsteel International",
+    "filename": "Macsteel.svg",
+    "url": "https://www.mitgr.com/",
+    "tier": "gold"
   }
 ]
