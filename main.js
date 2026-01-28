@@ -533,6 +533,25 @@ function initScrollingLogos() {
 ---------------------------------------- */
 let carouselCurrentIndex = 0;
 let carouselImages = [];
+let carouselAutoplayInterval = null;
+let carouselPausedUntil = 0;
+let carouselIsHovered = false;
+
+function startCarouselAutoplay() {
+  if (carouselAutoplayInterval) return;
+  
+  carouselAutoplayInterval = setInterval(() => {
+    // Don't auto-advance if hovered or manually paused
+    if (carouselIsHovered || Date.now() < carouselPausedUntil) return;
+    
+    carouselCurrentIndex = (carouselCurrentIndex + 1) % carouselImages.length;
+    updateCarousel();
+  }, 5000);
+}
+
+function pauseCarouselFor(ms) {
+  carouselPausedUntil = Date.now() + ms;
+}
 
 async function initCarousel() {
   const carouselTrack = document.getElementById('carouselTrack');
@@ -569,15 +588,26 @@ async function initCarousel() {
       <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
     `).join('');
 
-    // Add event listeners
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => {
+      carouselIsHovered = true;
+    });
+    
+    carouselContainer.addEventListener('mouseleave', () => {
+      carouselIsHovered = false;
+    });
+
+    // Add event listeners for manual navigation (pause for 5 seconds after)
     prevBtn.addEventListener('click', () => {
       carouselCurrentIndex = (carouselCurrentIndex - 1 + carouselImages.length) % carouselImages.length;
       updateCarousel();
+      pauseCarouselFor(5000);
     });
 
     nextBtn.addEventListener('click', () => {
       carouselCurrentIndex = (carouselCurrentIndex + 1) % carouselImages.length;
       updateCarousel();
+      pauseCarouselFor(5000);
     });
 
     // Dot click handlers
@@ -585,14 +615,12 @@ async function initCarousel() {
       dot.addEventListener('click', () => {
         carouselCurrentIndex = parseInt(dot.dataset.index);
         updateCarousel();
+        pauseCarouselFor(5000);
       });
     });
 
-    // Auto-advance every 5 seconds
-    setInterval(() => {
-      carouselCurrentIndex = (carouselCurrentIndex + 1) % carouselImages.length;
-      updateCarousel();
-    }, 5000);
+    // Start auto-advance
+    startCarouselAutoplay();
 
   } catch (error) {
     console.warn('Could not load outreach images:', error);

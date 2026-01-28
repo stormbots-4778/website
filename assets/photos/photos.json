@@ -8,6 +8,7 @@
   { "filename": "7.jpg", "caption": "Team Photo" },
   { "filename": "8.jpg", "caption": "Team Photo" },
   { "filename": "9.jpg", "caption": "Team Photo" },
+  { "filename": "21.webp", "caption": "Team Photo" },
   { "filename": "10.jpg", "caption": "Team Photo" },
   { "filename": "11.jpg", "caption": "Team Photo" },
   { "filename": "12.webp", "caption": "Team Photo" },
@@ -18,7 +19,5 @@
   { "filename": "17.webp", "caption": "Team Photo" },
   { "filename": "18.webp", "caption": "Team Photo" },
   { "filename": "19.webp", "caption": "Team Photo" },
-  { "filename": "20.png", "caption": "Team Photo" },
-  { "filename": "21.webp", "caption": "Team Photo" },
   { "filename": "22.webp", "caption": "Team Photo" }
 ]
